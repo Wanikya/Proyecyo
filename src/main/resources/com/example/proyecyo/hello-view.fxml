@@ -19,18 +19,18 @@
       <Label layoutX="19.0" layoutY="421.0" text="Zalfa/2" />
       <Label layoutX="24.0" layoutY="450.0" text="Sigma" />
       <Label layoutX="24.0" layoutY="476.0" text="Media" />
-      <Label fx:id="zo" disable="true" layoutX="69.0" layoutY="349.0" />
-      <Label fx:id="ncor" disable="true" layoutX="78.0" layoutY="380.0" />
-      <Label fx:id="zalfa" disable="true" layoutX="78.0" layoutY="417.0" />
-      <Label fx:id="sigma" disable="true" layoutX="78.0" layoutY="446.0" />
-      <Label fx:id="media" disable="true" layoutX="78.0" layoutY="481.0" />
+      <Label fx:id="zo" layoutX="69.0" layoutY="349.0" prefHeight="17.0" prefWidth="166.0" text="z" />
+      <Label fx:id="ncor" disable="true" layoutX="78.0" layoutY="380.0" prefHeight="17.0" prefWidth="166.0" text="nc" />
+      <Label fx:id="zalfa" disable="true" layoutX="78.0" layoutY="417.0" prefHeight="17.0" prefWidth="166.0" text="zalfa" />
+      <Label fx:id="sigma" disable="true" layoutX="78.0" layoutY="446.0" prefHeight="17.0" prefWidth="166.0" text="sigma" />
+      <Label fx:id="media" disable="true" layoutX="78.0" layoutY="481.0" prefHeight="17.0" prefWidth="166.0" text="media" />
       <Label layoutX="30.0" layoutY="512.0" text="N" />
-      <Label fx:id="ndatos" disable="true" layoutX="69.0" layoutY="508.0" />
-      <Label fx:id="nco" disable="true" layoutX="69.0" layoutY="539.0" />
+      <Label fx:id="ndatos" layoutX="69.0" layoutY="508.0" prefHeight="17.0" prefWidth="166.0" />
+      <Label fx:id="nco" disable="true" layoutX="69.0" layoutY="539.0" prefHeight="17.0" prefWidth="166.0" />
       <Label layoutX="24.0" layoutY="539.0" text="Co" />
       <Label layoutX="20.0" layoutY="576.0" text="Inv" />
       <Label layoutX="13.0" layoutY="611.0" text="Resultado" />
-      <Label fx:id="inv" disable="true" layoutX="69.0" layoutY="572.0" />
-      <Label fx:id="resu" disable="true" layoutX="78.0" layoutY="607.0" />
+      <Label fx:id="inv" disable="true" layoutX="69.0" layoutY="572.0" prefHeight="17.0" prefWidth="166.0" />
+      <Label fx:id="resu" disable="true" layoutX="78.0" layoutY="607.0" prefHeight="17.0" prefWidth="265.0" />
    </children>
 </AnchorPane>

@@ -16,7 +16,7 @@ public class Metodos {
     @FXML private Label corrida;
     @FXML private Label longi;
     @FXML private Label nco;
-    @FXML private Label nd;
+    @FXML private Label ndatos;
     @FXML private Label media;
     @FXML private Label sigma;
     @FXML private Label zo;
@@ -64,7 +64,7 @@ public class Metodos {
             System.out.println(map);
             longi.setText(String.valueOf(map));
             System.out.println("Números de datos=" +lista.size());
-            nd.setText(String.valueOf(lista.size()));
+            ndatos.setText(String.valueOf(lista.size()));
             System.out.println("Corridas totales = "+map.size());
             nco.setText(String.valueOf(map.size()));
             System.out.println("Media de corridas es: "+c);
