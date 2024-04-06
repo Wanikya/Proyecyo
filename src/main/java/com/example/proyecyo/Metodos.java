@@ -1,10 +1,95 @@
 package com.example.proyecyo;
 
 import java.util.*;
+import java.math.BigDecimal;
+
+import javafx.scene.control.*;
 import org.apache.commons.math3.distribution.NormalDistribution;
-import org.apache.commons.math3.distribution.ChiSquaredDistribution;
+import javafx.fxml.FXML;
+
 public class Metodos {
-    public static double x,y,z,f;
+    double j;
+    double p2;
+    public static double x,y,z;
+    @FXML private TextField datos;
+    @FXML private TextField nc;
+    @FXML private Label corrida;
+    @FXML private Label longi;
+    @FXML private Label nco;
+    @FXML private Label nd;
+    @FXML private Label media;
+    @FXML private Label sigma;
+    @FXML private Label zo;
+    @FXML private Label zalfa;
+    @FXML private Label ncor;
+    @FXML private Label inv;
+    @FXML private Label resu;
+
+    public static List<Double> parseNumbers(String data) {
+        List<Double> numbers = new ArrayList<>();
+        StringBuilder currentNumber = new StringBuilder();
+        for (int i = 0; i < data.length(); i++) {
+            char c = data.charAt(i);
+            currentNumber.append(c);
+            if (i + 1 < data.length() && data.charAt(i + 1) == '.' && Character.isDigit(c)) {
+                try {
+                    double number = Double.parseDouble(currentNumber.toString());
+                    numbers.add(number);
+                    currentNumber.setLength(0);
+                } catch (NumberFormatException e) {
+                    System.out.println("Error al parsear: " + currentNumber.toString());
+                }
+            }
+        }
+        return numbers;
+    }
+    public void Alto(){
+        List<Double> lista = new ArrayList<>();
+        lista=parseNumbers(this.datos.getText());
+        if (nc.getText()!=""){
+            j= Double.parseDouble(nc.getText());
+            p2= (1 - j/100) /2;
+            List<Integer> valores = listaS(lista);
+            HashMap<Integer, Integer> map = corridas(valores);
+            double c = Media(lista);
+            double a = Sigma(lista);
+            double h = Z(lista);
+            double f = invNormEstand(1-p2);
+
+            System.out.println("Los valores dados fueron:");
+            System.out.print(lista);
+            System.out.println("Las corridas son:");
+            System.out.println(valores);
+            corrida.setText(String.valueOf(valores));
+            System.out.println(map);
+            longi.setText(String.valueOf(map));
+            System.out.println("Números de datos=" +lista.size());
+            nd.setText(String.valueOf(lista.size()));
+            System.out.println("Corridas totales = "+map.size());
+            nco.setText(String.valueOf(map.size()));
+            System.out.println("Media de corridas es: "+c);
+            media.setText(String.valueOf(c));
+            System.out.println("Sigma cuadrada de corridas = "+a);
+            sigma.setText(String.valueOf(a));
+            System.out.println("Z es: "+h);
+            zo.setText(String.valueOf(h));
+            System.out.println("El valor de confianza es: "+j);
+            ncor.setText(String.valueOf(j));
+            System.out.println("Zalfa/2 es: "+p2);
+            zalfa.setText(String.valueOf(p2));
+            System.out.println("Inversa nomral estandar: "+f);
+            inv.setText(String.valueOf(f));
+            if(p2>f){
+                resu.setText("Ho se rechaza y los datos no son de una serie U(0, 1)");
+            } else{
+                resu.setText("Ho se acepta y los datos son de una serie U(0, 1)");
+            }
+        }
+        else {
+            System.out.println("Error");
+        }
+
+    }
     public static List<Integer> listaS(List<Double> listaDeDatos){
         List<Integer> listaS = new ArrayList<>();
         for(int i = 1; i<listaDeDatos.size();i++){
@@ -37,7 +122,7 @@ public class Metodos {
         x= (double) ((2 * lista.size()) - 1) / 3;
         return x;
     }
-    public double Sigma(List<Integer> lista){
+    public double Sigma(List<Double> lista){
         y = (double) ((16* lista.size())-29)/90;
         return y;
     }
@@ -54,33 +139,5 @@ public class Metodos {
 
         NormalDistribution normalDistribution = new NormalDistribution();
         return normalDistribution.inverseCumulativeProbability(probability);
-    }
-
-    public static void main(String[] args) {
-        Metodos metodos= new Metodos();
-        List<Double> lista = new ArrayList<>(Arrays.asList(
-                0.86, 0.95, 0.19, 0.3, 0.48, 0.24, 0.97, 0.52, 0.93, 0.24,
-                0.57, 0.59, 0.36, 0.54, 0.97, 0.38, 0.83, 0.01, 0.24, 0.55,
-                0.44, 0.54, 0.99, 0.55, 0.6, 0.36, 0.19, 0.96, 0.87, 0.79,
-                0.51, 0.8, 0.74, 0.27, 0.59, 0.31, 0.83, 0.45, 0.45, 0.72,
-                0.59, 0.68, 0.47, 0.28, 0.51, 0.02, 0.17, 0.35, 0.15, 0.27,
-                0.65, 0.56, 0.18, 0.76, 0.07, 0.06, 0.56, 0.77, 0.37, 0.71
-        ));
-        double a, h;
-        double c = (double) ((2 * lista.size()) - 1) / 3;
-        a = (double) ((16* lista.size())-29)/90;
-
-        List<Integer> valores = listaS(lista);
-        HashMap<Integer, Integer> map = corridas(valores);
-        h=((map.size()-c)/(Math.sqrt(a)));
-
-        System.out.println(lista);
-        System.out.println(valores);
-        System.out.println(map);
-        System.out.println("Números de datos=" +lista.size());
-        System.out.println("Corridas totales = "+map.size());
-        System.out.println("Media de corridas es: "+c);
-        System.out.println("Sigma cuadrada de corridas = "+a);
-        System.out.println("Z es: "+h);
     }
 }

@@ -1,16 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.proyecyo.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="662.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyecyo.Metodos">
+   <children>
+      <Label graphicTextGap="1.0" layoutX="16.0" layoutY="24.0" prefHeight="38.0" prefWidth="154.0" text="Ingrese los datos" />
+      <TextField fx:id="datos" layoutX="19.0" layoutY="62.0" prefHeight="123.0" prefWidth="149.0" />
+      <Button fx:id="button" layoutX="18.0" layoutY="260.0" mnemonicParsing="false" onAction="#Alto" text="Generar" />
+      <Label layoutX="14.0" layoutY="185.0" text="Ingrese nivel de confianza" />
+      <TextField fx:id="nc" layoutX="18.0" layoutY="213.0" />
+      <Label layoutX="287.0" layoutY="35.0" text="Corridas" />
+      <Label fx:id="corrida" disable="true" layoutX="287.0" layoutY="62.0" prefHeight="197.0" prefWidth="301.0" />
+      <Label layoutX="295.0" layoutY="285.0" text="Longitud de corridas" />
+      <Label fx:id="longi" disable="true" layoutX="295.0" layoutY="319.0" prefHeight="220.0" prefWidth="289.0" />
+      <Label layoutX="27.0" layoutY="353.0" text="Z" />
+      <Label layoutX="30.0" layoutY="384.0" text="Nc" />
+      <Label layoutX="19.0" layoutY="421.0" text="Zalfa/2" />
+      <Label layoutX="24.0" layoutY="450.0" text="Sigma" />
+      <Label layoutX="24.0" layoutY="476.0" text="Media" />
+      <Label fx:id="zo" disable="true" layoutX="69.0" layoutY="349.0" />
+      <Label fx:id="ncor" disable="true" layoutX="78.0" layoutY="380.0" />
+      <Label fx:id="zalfa" disable="true" layoutX="78.0" layoutY="417.0" />
+      <Label fx:id="sigma" disable="true" layoutX="78.0" layoutY="446.0" />
+      <Label fx:id="media" disable="true" layoutX="78.0" layoutY="481.0" />
+      <Label layoutX="30.0" layoutY="512.0" text="N" />
+      <Label fx:id="ndatos" disable="true" layoutX="69.0" layoutY="508.0" />
+      <Label fx:id="nco" disable="true" layoutX="69.0" layoutY="539.0" />
+      <Label layoutX="24.0" layoutY="539.0" text="Co" />
+      <Label layoutX="20.0" layoutY="576.0" text="Inv" />
+      <Label layoutX="13.0" layoutY="611.0" text="Resultado" />
+      <Label fx:id="inv" disable="true" layoutX="69.0" layoutY="572.0" />
+      <Label fx:id="resu" disable="true" layoutX="78.0" layoutY="607.0" />
+   </children>
+</AnchorPane>
