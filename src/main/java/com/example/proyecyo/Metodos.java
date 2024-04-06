@@ -66,7 +66,7 @@ public class Metodos {
                 0.59, 0.68, 0.47, 0.28, 0.51, 0.02, 0.17, 0.35, 0.15, 0.27,
                 0.65, 0.56, 0.18, 0.76, 0.07, 0.06, 0.56, 0.77, 0.37, 0.71
         ));
-        double a=0, h=0;
+        double a, h;
         double c = (double) ((2 * lista.size()) - 1) / 3;
         a = (double) ((16* lista.size())-29)/90;
 
